@@ -1,4 +1,3 @@
-
 use crossterm::event::{poll, Event, KeyCode, KeyEventKind, MouseEventKind};
 
 use std::time::Duration;
@@ -80,6 +79,8 @@ impl EventHandler {
                                 KeyCode::Char('k') => tx.send(EventType::Key(event)),
                                 KeyCode::Char('l') => tx.send(EventType::Key(event)),
                                 KeyCode::Char('L') => tx.send(EventType::Key(event)),
+                                KeyCode::Tab => tx.send(EventType::Key(event)),
+                                KeyCode::BackTab => tx.send(EventType::Key(event)),
                                 KeyCode::Up => tx.send(EventType::Key(event)),
                                 KeyCode::Down => tx.send(EventType::Key(event)),
                                 KeyCode::Left => tx.send(EventType::Key(event)),

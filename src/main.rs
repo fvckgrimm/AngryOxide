@@ -2789,10 +2789,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                             if let Event::Key(key) = event {
                                 if key.kind == KeyEventKind::Press {
                                     match key.code {
-                                        KeyCode::Char('d') | KeyCode::Right => {
+                                        KeyCode::Char('d') | KeyCode::Right | KeyCode::Tab => {
                                             oxide.ui_state.menu_next()
                                         }
-                                        KeyCode::Char('a') | KeyCode::Left => {
+                                        KeyCode::Char('a') | KeyCode::Left | KeyCode::BackTab => {
                                             oxide.ui_state.menu_back()
                                         }
                                         KeyCode::Char('w') | KeyCode::Char('W') | KeyCode::Up => {
@@ -2980,12 +2980,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                         }
                         EventType::Tick => {
                             // This part updates the UI using the terminal, only if it's initialized
-                            let _ = print_ui(
-                                term,
-                                &mut oxide,
-                                start_time,
-                                frame_rate,
-                            );
+                            let _ = print_ui(term, &mut oxide, start_time, frame_rate);
                         }
                     }
                 }

@@ -348,7 +348,7 @@ pub fn print_ui(
                 Span::raw("| quit: ").style(Style::new()),
                 Span::styled("[q]", Style::default().reversed()),
                 Span::raw(" | change tab: ").style(Style::new()),
-                Span::styled("[a]/[d]", Style::default().reversed()),
+                Span::styled("[a]/[d] | [tab]/[shift+tab]", Style::default().reversed()),
                 Span::raw(" | pause: ").style(Style::new()),
                 Span::styled("[space]", Style::default().reversed()),
                 Span::raw(" | scroll: ").style(Style::new()),
@@ -436,8 +436,8 @@ fn create_keybind_popup(frame: &mut Frame<'_>, area: Rect) {
         ]),
         Line::from(vec![
             Span::raw("Change Tabs").style(Style::new()),
-            Span::raw(repeat_dot(28)).style(Style::new()),
-            Span::styled("[a]/[d]", Style::default().reversed()),
+            Span::raw(repeat_dot(8)).style(Style::new()),
+            Span::styled("[a]/[d] | [tab]/[shift+tab]", Style::default().reversed()),
         ]),
         Line::from(vec![
             Span::raw("Scroll Table").style(Style::new()),
